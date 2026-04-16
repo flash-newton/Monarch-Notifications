@@ -1,0 +1,54 @@
+{
+  "name": "monarch-notifications",
+  "version": "1.0.0",
+  "description": "Adapter-based library to add entries to the Monarch Notifications SharePoint list from SPFx solutions and web apps",
+  "main": "dist/monarch-notifications.umd.js",
+  "module": "dist/monarch-notifications.esm.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/monarch-notifications.esm.js",
+      "require": "./dist/monarch-notifications.umd.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "webpack --config webpack/webpack.esm.js && webpack --config webpack/webpack.umd.js",
+    "build:esm": "webpack --config webpack/webpack.esm.js",
+    "build:umd": "webpack --config webpack/webpack.umd.js",
+    "types": "tsc --project tsconfig.build.json --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "Monarch Library",
+    "Monarch Notifications",
+    "SharePoint"
+  ],
+  "author": "Bimal Eranda Rajapakse",
+  "license": "ISC",
+  "peerDependencies": {
+    "@pnp/sp": ">=3.0.0 <5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@pnp/sp": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "typescript": "^6.0.2"
+  },
+  "devDependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@pnp/sp": "^4.18.0",
+    "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "ts-loader": "^9.5.7",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-merge": "^6.0.1"
+  }
+}

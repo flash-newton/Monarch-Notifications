@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "strictNullChecks": true,
+        "target": "ES2019",
+        "moduleResolution": "Bundler",
+        "module": "ESNext",
+        "declaration": true,
+        "declarationMap": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "rootDir": "./src",
+        "lib": ["ES2019", "DOM"],
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}
