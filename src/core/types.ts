@@ -1,14 +1,29 @@
 /**
- * Valid notification types — mirrors the choices in the NotificationType
- * column of the Monarch Notifications list. Extend this union or use `string`
- * to allow values not covered here.
+ * Predefined notification type constants.
+ * Use these instead of raw strings to get autocomplete and avoid typos.
+ *
+ * @example
+ * notificationType: NotificationType.Info
+ * notificationType: NotificationType.Approval
+ *
+ * Custom values are still accepted if your list has additional choices:
+ * notificationType: "CustomType"
  */
-export type NotificationType =
-  | "Info"
-  | "Warning"
-  | "Error"
-  | "Approval"
-  | (string & Record<never, never>); // keeps autocomplete while accepting any string
+export const NotificationType = {
+  Info:     "Info",
+  Warning:  "Warning",
+  Error:    "Error",
+  Approval: "Approval",
+} as const;
+
+/**
+ * The type for the notificationType field.
+ * Accepts any of the NotificationType constants or a custom string
+ * for choice values not covered by the predefined set.
+ */
+export type NotificationTypeValue =
+  | typeof NotificationType[keyof typeof NotificationType]
+  | (string & Record<never, never>);
 
 /**
  * The payload for a single notification entry.
@@ -25,7 +40,7 @@ export interface NotificationPayload {
   /** Maps to the Message column (multi-line text) */
   message: string;
   /** Maps to the NotificationType choice column */
-  notificationType: NotificationType;
+  notificationType: NotificationTypeValue;
   /**
    * Array of user email addresses / UPNs (e.g. "john.doe@contoso.com").
    * Each adapter is responsible for resolving these to the format SharePoint expects.
