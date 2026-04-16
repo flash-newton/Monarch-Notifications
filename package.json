@@ -1,6 +1,6 @@
 {
   "name": "monarch-notifications",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adapter-based library to add entries to the Monarch Notifications SharePoint list from SPFx solutions and web apps",
   "main": "dist/monarch-notifications.umd.js",
   "module": "dist/monarch-notifications.esm.js",
