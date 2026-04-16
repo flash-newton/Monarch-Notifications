@@ -53,9 +53,9 @@ export class SPFxAdapter implements ISharePointAdapter {
       Message: payload.message,
       NotificationType: payload.notificationType,
       Subject: subject,
-      // Multi-person fields in SharePoint REST use the suffix "Id"
-      // and expect { results: [id1, id2, ...] } for multi-value
-      UsersId: { results: userIds },
+      // PnP v4 uses odata=nometadata — multi-person fields expect a plain array,
+      // not the old verbose { results: [] } wrapper used in PnP v2/v3
+      UsersId: userIds,
     });
 
     return { id: result.ID as number };
