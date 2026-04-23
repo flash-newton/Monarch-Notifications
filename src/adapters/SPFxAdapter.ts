@@ -56,6 +56,7 @@ export class SPFxAdapter implements ISharePointAdapter {
       // PnP v4 uses odata=nometadata — multi-person fields expect a plain array,
       // not the old verbose { results: [] } wrapper used in PnP v2/v3
       UsersId: userIds,
+      ...(payload.notificationLink !== undefined && { ClickUrl: payload.notificationLink }),
     });
 
     return { id: result.ID as number };

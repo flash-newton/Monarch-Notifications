@@ -46,6 +46,11 @@ export interface NotificationPayload {
    * Each adapter is responsible for resolving these to the format SharePoint expects.
    */
   users: string[];
+  /**
+   * Optional URL written to the ClickUrl column.
+   * Use this to link the notification to a relevant page or item.
+   */
+  notificationLink?: string;
 }
 
 /**

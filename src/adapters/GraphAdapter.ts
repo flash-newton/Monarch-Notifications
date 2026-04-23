@@ -68,6 +68,7 @@ export class GraphAdapter implements ISharePointAdapter {
         Message: payload.message,
         NotificationType: payload.notificationType,
         Subject: subject,
+        ...(payload.notificationLink !== undefined && { ClickUrl: payload.notificationLink }),
         // Graph multi-person fields expect an array of objects with @odata.type + id
         Users: userIds.map((id) => ({
           "@odata.type": "#microsoft.graph.user",
